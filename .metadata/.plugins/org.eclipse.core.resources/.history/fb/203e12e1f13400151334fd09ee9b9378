@@ -1,0 +1,46 @@
+<%layout("/common/_layout.html", {title:"办公用品出库记录"}){ %>
+<div>
+
+	<div class="masthead">
+			<h3 class="muted">办公用品出库记录</h3>
+	</div>
+	<hr/>	
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th style="text-align:center; width:5%">序号</th>
+                <th style="text-align:center; width:10%">名称</th>
+                <th style="text-align:center; width:10%">型号</th>
+                <th style="text-align:center; width:10%">价格（元）</th>
+                <th style="text-align:center; width:10%">供货商</th>
+                <th style="text-align:center; width:10%">入库时间</th>
+                <th style="text-align:center; width:10%">出库时间</th>
+                <th style="text-align:center; width:20%">使用者</th>
+            </tr>
+            </thead>
+			<tbody>
+           <%for(x in officeSupplyPage.list){ %>
+                <tr>
+                    <td style="text-align:center;" hidden="true">${x.ID}</td>
+                    <td style="text-align:center;">${xLP.index}</td>
+                    <td style="text-align:center;">${x.NAME}</td>
+                    <td style="text-align:center;">${x.TYPE}</td>
+                    <td style="text-align:center;">${x.PRIZE}</td>
+                    <td style="text-align:center;">${x.SNAME}</td>
+                    <td style="text-align:center;">${x.IN_TIME}</td>
+                    <td style="text-align:center;">${x.NOTE!''}</td>
+                    <td style="text-align:center;">
+                        <a href="/asset/officeSupply/delete/${x.ID}">删除</a>
+                        &nbsp;&nbsp;<a href="/asset/officeSupply/edit/${x.ID}">编辑</a>
+                    </td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+       	<%includeFileTemplate("/common/_paginate.html",
+		{"currentPage":officeSupplyPage.pageNumber,"totalPage":officeSupplyPage.totalPage,"actionUrl":"/asset/officeSupply/"}) {} 
+	    %>
+    </div>
+</div>
+<%}%>

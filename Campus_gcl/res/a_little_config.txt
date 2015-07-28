@@ -1,0 +1,4 @@
+jdbcUrl = jdbc:mysql://ceca10.pku.edu.cn/HJ_DataBase?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password = ceca512
+devMode = true
