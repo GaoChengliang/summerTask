@@ -8,7 +8,7 @@ import com.jfinal.plugin.activerecord.Page;
 
 public class OfficeSupplyController extends Controller{
 	public void index() {
-		Page<OfficeSupply> page  = OfficeSupply.dao.paginate(getParaToInt(0, 1), 8, "select ost.*, st.NAME SNAME", 
+		Page<OfficeSupply> page  = OfficeSupply.dao.paginate(getParaToInt(0, 1), 2, "select ost.*, st.NAME SNAME", 
 				"from office_supply_table ost inner join supplier_table st on ost.SUPPLIER_ID = st.ID where ost.IS_OUT = 0 order by ost.ID asc");
 		setAttr("officeSupplyPage", page);
 		render("office_supply.html");
@@ -17,23 +17,25 @@ public class OfficeSupplyController extends Controller{
 	public void add() {
 		List<Supplier> suppliers = Supplier.dao.find("select * from supplier_table order by ID asc");
 		setAttr("suppliersList", suppliers);
+		setAttr("lastPage", getParaToInt());
 		render("add.html");
 	}
 	
 	public void save() {
 		getModel(OfficeSupply.class).save();
-		redirect("/asset/officeSupply");
+		redirect("/asset/officeSupply/" + getParaToInt());
 	}
 	
 	public void edit() {
 		List<Supplier> suppliers = Supplier.dao.find("select * from supplier_table order by ID asc");
 		setAttr("suppliersList", suppliers);
-		setAttr("officeSupply", OfficeSupply.dao.findById(getParaToInt()));
+		setAttr("currentPage",getParaToInt(1));
+		setAttr("officeSupply", OfficeSupply.dao.findById(getParaToInt(0)));
 	}
 	
 	public void update() {
 		getModel(OfficeSupply.class).update();
-		redirect("/asset/officeSupply");
+		redirect("/asset/officeSupply/" + getParaToInt());
 	}
 	
 	public void delete() {
@@ -49,23 +51,25 @@ public class OfficeSupplyController extends Controller{
 	}
 	
 	public void apply(){
-		setAttr("officeApply", OfficeSupply.dao.findById(getParaToInt()));
+		setAttr("currentPage",getParaToInt(1));
+		setAttr("officeApply", OfficeSupply.dao.findById(getParaToInt(0)));
 		render("apply.html");
 	}
 	
 	public void disapply(){
-		OfficeSupply.dao.findById(getParaToInt()).set("IS_APPLY", 0).update();
-		redirect("/asset/officeSupply");
+		OfficeSupply.dao.findById(getParaToInt(0)).set("IS_APPLY", 0).update();
+		redirect("/asset/officeSupply/" + getParaToInt(1));
 	}
 	
 	public void examine(){
-		setAttr("officeApply", OfficeSupply.dao.findById(getParaToInt()));
+		setAttr("currentPage",getParaToInt(1));
+		setAttr("officeApply", OfficeSupply.dao.findById(getParaToInt(0)));
 		render("examine.html");
 	}
 	
 	public void reject(){
-		OfficeSupply.dao.findById(getParaToInt()).set("IS_APPLY", 0).update();
-		redirect("/asset/officeSupply");
+		OfficeSupply.dao.findById(getParaToInt(0)).set("IS_APPLY", 0).update();
+		redirect("/asset/officeSupply/" + getParaToInt(1));
 	}
 
 }

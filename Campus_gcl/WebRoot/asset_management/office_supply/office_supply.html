@@ -7,7 +7,7 @@
 	<hr/>	
     <ul class="breadcrumb">
         <li class="active">未出库办公用品<span class="divier"></span></li>
-        <li><a href="/asset/officeSupply/add">新增</a></li>
+        <li><a href="/asset/officeSupply/add/${officeSupplyPage.totalPage}">新增</a></li>
         <li class="pull-right"><a href="/asset/officeSupply/outRecord" target="_blank">出库记录</a></li>
     </ul>
     <!--<a type="button" class="btn btn-primary" href="/blog/add">鍒涘缓Blog</a>-->
@@ -46,9 +46,9 @@
 
                     <td style="text-align:center;">
                         <%if(x.IS_APPLY == 0){%>
-                        <a href="/asset/officeSupply/apply/${x.ID}">申请使用</a>
+                        <a href="/asset/officeSupply/apply/${x.ID}-${officeSupplyPage.pageNumber}">申请使用</a>
                         <%}else{%>
-                             <a href="/asset/officeSupply/disapply/${x.ID}">取消申请</a>
+                             <a href="/asset/officeSupply/disapply/${x.ID}-${officeSupplyPage.pageNumber}">取消申请</a>
                         <%}%>
                     </td>
 
@@ -57,11 +57,11 @@
 
                         <%if(x.IS_APPLY == 0){%>
                             <a href="/asset/officeSupply/delete/${x.ID}">删除</a>
-                            &nbsp;&nbsp;<a href="/asset/officeSupply/edit/${x.ID}">编辑</a>
+                            &nbsp;&nbsp;<a href="/asset/officeSupply/edit/${x.ID}-${officeSupplyPage.pageNumber}">编辑</a>
                         <%}else{%>
                             <a href="/asset/officeSupply/delete/${x.ID}">删除</a>
-                            &nbsp;&nbsp;<a href="/asset/officeSupply/edit/${x.ID}">编辑</a>
-                            &nbsp;&nbsp;<a href="/asset/officeSupply/examine/${x.ID}">审批</a>
+                            &nbsp;&nbsp;<a href="/asset/officeSupply/edit/${x.ID}-${officeSupplyPage.pageNumber}">编辑</a>
+                            &nbsp;&nbsp;<a href="/asset/officeSupply/examine/${x.ID}-${officeSupplyPage.pageNumber}">审批</a>
                         <%}%>
 
                     </td>

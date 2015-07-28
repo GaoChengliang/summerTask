@@ -6,7 +6,7 @@
     <hr/>
 
     <div>
-        <form action="/asset/officeSupply/update" method="post">
+        <form action="/asset/officeSupply/update/${currentPage}" method="post">
             <input type="hidden" name="officeSupply.ID" value="${officeApply.ID!''}"/>
             <input type="hidden" name="officeSupply.NAME" value="${officeApply.NAME!''}"/>
             <input type="hidden" name="officeSupply.TYPE" value="${officeApply.TYPE!''}"/>
@@ -42,7 +42,7 @@
 			</div>
          	 
             <button class="btn btn-success" type="submit">批准</button>
-            <a class="btn btn-danger" href="/asset/officeSupply/reject/${officeApply.ID}">不合格</a>
+            <a class="btn btn-danger" href="/asset/officeSupply/reject/${officeApply.ID}-${currentPage}">不合格</a>
         </form>
     </div>
 </div>

@@ -6,7 +6,7 @@
     <hr/>
 
     <div>
-        <form action="/asset/officeSupply/update" method="post">
+        <form action="/asset/officeSupply/update/${currentPage}" method="post">
             <input type="hidden" name="officeSupply.ID" value="${officeApply.ID!''}"/>
             <input type="hidden" name="officeSupply.NAME" value="${officeApply.NAME!''}"/>
             <input type="hidden" name="officeSupply.TYPE" value="${officeApply.TYPE!''}"/>
@@ -28,12 +28,12 @@
             <div class="form-group">
                 <label>使用者</label>
                 <input placeholder="输入使用者..." class="form-control" type="text" name="officeSupply.USER"
-                       value="${officeApply.USER!''}" required="true"/>
+                       value="" required="true"/>
             </div>
 
             <div class="form-group">
                 <label>用途</label>
-                <textarea placeholder="输入用途..." class="form-control" name="officeSupply.USE_FOR" rows="10" required="true">${officeApply.USE_FOR!''}</textarea>
+                <textarea placeholder="输入用途..." class="form-control" name="officeSupply.USE_FOR" rows="10" required="true"></textarea>
             </div>
 
             <button class="btn btn-info" type="submit">提交申请</button>

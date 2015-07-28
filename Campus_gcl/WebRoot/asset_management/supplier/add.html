@@ -10,7 +10,7 @@
     <li class="active">新增</li>
   </ul>
 <div>
-	<form action="/asset/supplier/save" method="post">
+	<form action="/asset/supplier/save/${lastPage}" method="post">
 		<%includeFileTemplate("/asset_management/supplier/_form.html"){}%>
 	</form>
 </div>
