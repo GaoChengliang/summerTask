@@ -6,39 +6,54 @@
     <hr/>
 
     <div>
-        <form action="/asset/officeSupply/update/${currentPage}" method="post">
-            <input type="hidden" name="officeSupply.ID" value="${officeApply.ID!''}"/>
-            <input type="hidden" name="officeSupply.NAME" value="${officeApply.NAME!''}"/>
-            <input type="hidden" name="officeSupply.TYPE" value="${officeApply.TYPE!''}"/>
-            <input type="hidden" name="officeSupply.PRIZE" value="${officeApply.PRIZE!''}"/>
-            <input type="hidden" name="officeSupply.SUPPLIER_ID" value="${officeApply.SUPPLIER_ID!''}"/>
-            <input type="hidden" name="officeSupply.IN_TIME" value="${officeApply.IN_TIME!''}"/>
-            <input type="hidden" name="officeSupply.IS_OUT" value="0"/>
-            <input type="hidden" name="officeSupply.IS_APPLY" value="1"/>
-
+        <form id="applyForm" name="applyForm" method="post">
+         	<input type="hidden" name="officeSupplyApply.ID" value=""/>
+            <input type="hidden" name="officeSupplyApply.OSID" value="${officeApply.OSID!''}"/>
+			
+			 <div class="form-group">
+                <label>财产编号：${officeApply.OSID!''}</label>
+            </div>
 
             <div class="form-group">
                 <label>用品名：${officeApply.NAME!''}</label>
             </div>
-            
-             <div class="form-group">
-                <label>型号：${officeApply.TYPE!''}</label>
-            </div>
 
             <div class="form-group">
-                <label>使用者</label>
-                <input placeholder="输入使用者..." class="form-control" type="text" name="officeSupply.USER"
+                <label>申请者编号</label>
+                <input placeholder="输入使用者..." class="form-control" type="text" name="officeSupplyApply.USER_ACCOUNT"
                        value="" required="true"/>
             </div>
-
+            
+			 <div class="form-group">
+                <label>申请数量</label>
+                <input placeholder="输入申请数量..." class="form-control" type="number" name="officeSupplyApply.NUMBER"
+                       value="" required="true"/>
+            </div>
+			
             <div class="form-group">
-                <label>用途</label>
-                <textarea placeholder="输入用途..." class="form-control" name="officeSupply.USE_FOR" rows="10" required="true"></textarea>
+                <label>申请原因</label>
+                <textarea placeholder="输入申请原因..." class="form-control" name="officeSupplyApply.REASON" rows="5" required="true"></textarea>
+            </div>
+            
+             <div class="form-group">
+                <label>备注</label>
+                <textarea placeholder="输入备注..." class="form-control" name="officeSupplyApply.NOTE" rows="5" required="true"></textarea>
             </div>
 
-            <button class="btn btn-info" type="submit">提交申请</button>
+            <button class="btn btn-info" onclick="save()">保存</button>
+            <button class="btn btn-success" onclick="sub()">提交</button>
            
         </form>
     </div>
+
+    <script>
+        function save(){
+            $('#applyForm').attr("action", "/asset/officeSupply/saveApply/${currentPage}").submit();
+        }
+
+        function sub(){
+        	$('#applyForm').attr("action", "/asset/officeSupply/subApply/${currentPage}").submit();
+        }
+    </script>
 </div>
 <%}%>

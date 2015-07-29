@@ -1,0 +1,17 @@
+﻿<%layout("/common/_layout.html", {title:"办公用品管理"}){%>
+<div>
+
+	<div class="masthead">
+			<h3 class="muted">办公用品管理</h3>
+	</div>
+	<hr/>
+	
+  <ul class="breadcrumb">
+    <li><a href="/asset/supplier">未出库办公用品<span class="divier"></span></a></li>
+    <li class="active">编辑</li>
+  </ul>
+  <form role="form" action="/asset/officeSupply/update/${currentPage}" method="post">
+    <%includeFileTemplate("/asset_management/office_supply/_form.html"){}%>
+  </form>
+</div>
+<%}%>

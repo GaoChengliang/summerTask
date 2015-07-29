@@ -5,7 +5,9 @@ import org.beetl.core.GroupTemplate;
 import org.beetl.ext.jfinal.BeetlRenderFactory;
 
 import com.demo.asset.officesupply.OfficeSupply;
+import com.demo.asset.officesupply.OfficeSupplyApply;
 import com.demo.asset.officesupply.OfficeSupplyController;
+import com.demo.asset.officesupply.OfficeSupplyOut;
 import com.demo.asset.supplier.Supplier;
 import com.demo.asset.supplier.SupplierController;
 import com.jfinal.config.Constants;
@@ -85,6 +87,8 @@ public class DemoConfig extends JFinalConfig {
 		me.add(arp);
 		arp.addMapping("supplier_table", "ID", Supplier.class);
 		arp.addMapping("office_supply_table", "ID", OfficeSupply.class);
+		arp.addMapping("office_supply_out_table", "ID", OfficeSupplyOut.class);
+		arp.addMapping("office_supply_apply_table", "ID", OfficeSupplyApply.class);
 	}
 	
 	/**

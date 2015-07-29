@@ -1,0 +1,63 @@
+<%layout("/common/_layout.html", {title:"办公用品申请列表"}){ %>
+<div>
+
+	<div class="masthead">
+			<h3 class="muted">办公用品申请列表</h3>
+	</div>
+	<hr/>	
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+             	<th hidden="true"></th>
+                <th style="text-align:center; width:3%"></th>
+                <th style="text-align:center; width:8%">资产编号</th>
+                <th style="text-align:center; width:8%">名称</th>
+                <th style="text-align:center; width:8%">规格</th>
+                <th style="text-align:center; width:10%">单价（元）</th>
+                <th style="text-align:center; width:5%">数量</th>
+                <th style="text-align:center; width:5%">剩余</th>
+                <th style="text-align:center; width:7%">单位</th>
+                <th style="text-align:center; width:8%">供货商</th>
+                <th style="text-align:center; width:10%">入库时间</th>
+                <th style="text-align:center; width:8%">状态</th>
+                 <th style="text-align:center; width:8%">操作</th>
+                <th style="text-align:center; width:15%">管理员操作</th>
+            </tr>
+            </thead>
+			<tbody>
+           <%for(x in applyRecordPage.list){ %>
+                <tr>
+                	<td style="text-align:center;" hidden="true">${x.ID}</td>
+                    <td style="text-align:center;">${xLP.index}</td>
+                    <td style="text-align:center;">${x.OSID}</td>
+                    <td style="text-align:center;">${x.NAME}</td>
+                    <td style="text-align:center;">${x.TYPE}</td>
+                    <td style="text-align:center;">${x.PRIZE}</td>
+                    <td style="text-align:center;">${x.NUMBER}</td>
+                    <td style="text-align:center;">${x.REMAIN_NUMBER}</td>
+                    <td style="text-align:center;">${x.UNIT}</td>
+                    <td style="text-align:center;">${x.SNAME}</td>
+                    <td style="text-align:center;">${x.IN_TIME}</td>
+                    <td style="text-align:center;">${x.STATUS}</td>
+                    <td style="text-align:center;">
+                    	<%if(x.REMAIN_NUMBER > 0){%>
+                            <a href="/asset/officeSupply/apply/${x.ID}-${officeSupplyPage.pageNumber}">申请</a>
+                         <%}else{%>
+                         	无库存
+                         <%}%>
+                    </td>
+                    <td style="text-align:center;">
+                            <a href="/asset/officeSupply/delete/${x.ID}">删除</a>
+                            &nbsp;&nbsp;<a href="/asset/officeSupply/edit/${x.ID}-${officeSupplyPage.pageNumber}">编辑</a>
+                    </td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+       	<%includeFileTemplate("/common/_paginate.html",
+		{"currentPage":applyRecordPage.pageNumber,"totalPage":applyRecordPage.totalPage,"actionUrl":"/asset/officeSupply/applyRecord"}) {} 
+	    %>
+    </div>
+</div>
+<%}%>

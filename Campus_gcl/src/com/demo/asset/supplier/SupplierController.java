@@ -19,7 +19,11 @@ public class SupplierController extends Controller{
 	@Before(SupplierValidator.class)
 	public void save() {
 		getModel(Supplier.class).save();
-		redirect("/asset/supplier/" + getParaToInt());
+		int page = getParaToInt();
+		if(page <= 0){
+			page = 1;
+		}
+		redirect("/asset/supplier/" + page);
 	}
 	
 	public void edit() {

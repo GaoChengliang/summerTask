@@ -8,8 +8,8 @@ import com.jfinal.plugin.activerecord.Page;
 
 public class OfficeSupplyController extends Controller{
 	public void index() {
-		Page<OfficeSupply> page  = OfficeSupply.dao.paginate(getParaToInt(0, 1), 2, "select ost.*, st.NAME SNAME", 
-				"from office_supply_table ost inner join supplier_table st on ost.SUPPLIER_ID = st.ID where ost.IS_OUT = 0 order by ost.ID asc");
+		Page<OfficeSupply> page  = OfficeSupply.dao.paginate(getParaToInt(0, 1), 8, "select ost.*, st.NAME SNAME", 
+				"from office_supply_table ost inner join supplier_table st on ost.SUPPLIER_ID = st.ID order by ost.IN_TIME asc");
 		setAttr("officeSupplyPage", page);
 		render("office_supply.html");
 	}
@@ -17,13 +17,17 @@ public class OfficeSupplyController extends Controller{
 	public void add() {
 		List<Supplier> suppliers = Supplier.dao.find("select * from supplier_table order by ID asc");
 		setAttr("suppliersList", suppliers);
-		setAttr("lastPage", getParaToInt());
+		setAttr("lastPage", getParaToInt(0));
 		render("add.html");
 	}
 	
 	public void save() {
-		getModel(OfficeSupply.class).save();
-		redirect("/asset/officeSupply/" + getParaToInt());
+		getModel(OfficeSupply.class).set("REMAIN_NUMBER", getPara("officeSupply.NUMBER")).save();
+		int page = getParaToInt();
+		if(page <= 0){
+			page = 1;
+		}
+		redirect("/asset/officeSupply/" + page);
 	}
 	
 	public void edit() {
@@ -38,16 +42,51 @@ public class OfficeSupplyController extends Controller{
 		redirect("/asset/officeSupply/" + getParaToInt());
 	}
 	
+	public void saveApply() {
+		getModel(OfficeSupplyApply.class).set("APPLY_STATUS","SAVED").save();
+		int page = getParaToInt();
+		if(page <= 0){
+			page = 1;
+		}
+		redirect("/asset/officeSupply/" + page);
+	}
+	
+	public void subApply() {
+		OfficeSupplyApply osa = getModel(OfficeSupplyApply.class);
+		osa.set("APPLY_STATUS","SUBMMITED");
+		osa.set("REVIEW_STATUS", "PENDING").save();
+		int page = getParaToInt();
+		if(page <= 0){
+			page = 1;
+		}
+		redirect("/asset/officeSupply/" + page);
+	}
+	
 	public void delete() {
 		OfficeSupply.dao.deleteById(getParaToInt());
 		redirect("/asset/officeSupply");
 	}
 	
 	public void outRecord(){
-		Page<OfficeSupply> page  = OfficeSupply.dao.paginate(getParaToInt(0, 1), 8, "select ost.*, st.NAME SNAME", 
-				"from office_supply_table ost inner join supplier_table st on ost.SUPPLIER_ID = st.ID where ost.IS_OUT = 1 order by ost.ID asc");
+		Page<OfficeSupplyOut> page  = OfficeSupplyOut.dao.paginate(getParaToInt(0, 1), 8, "select *", 
+				"from office_supply_out_table order by OUT_TIME asc");
 		setAttr("outRecordPage", page);
 		render("out_record.html");
+	}
+	
+	public void addOut() {
+		setAttr("lastPage", getParaToInt(0));
+		render("add_out.html");
+	}
+	
+	
+	public void saveOut() {
+		getModel(OfficeSupplyOut.class).save();
+		int page = getParaToInt();
+		if(page <= 0){
+			page = 1;
+		}
+		redirect("/asset/officeSupply/outRecord/" + page);
 	}
 	
 	public void apply(){
@@ -61,8 +100,15 @@ public class OfficeSupplyController extends Controller{
 		redirect("/asset/officeSupply/" + getParaToInt(1));
 	}
 	
+	public void applyRecord(){
+		
+		Page<OfficeSupplyApply> page  = OfficeSupplyApply.dao.paginate(getParaToInt(0, 1), 8, "select *", 
+				"from office_supply_apply_table order by ID asc");
+		setAttr("applyRecordPage", page);
+		render("apply_record.html");
+	}
+	
 	public void examine(){
-		setAttr("currentPage",getParaToInt(1));
 		setAttr("officeApply", OfficeSupply.dao.findById(getParaToInt(0)));
 		render("examine.html");
 	}
