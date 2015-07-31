@@ -1,0 +1,59 @@
+<%layout("/common/_layout.html", {title:"办公用品申请"}){%>
+<div>
+    <div class="masthead">
+        <h3 class="muted">办公用品使用申请</h3>
+    </div>
+    <hr/>
+
+    <div>
+        <form id="applyForm" name="applyForm" method="post">
+         	<input type="hidden" name="officeSupplyApply.ID" value=""/>
+            <input type="hidden" name="officeSupplyApply.OSID" value="${officeApply.OSID!''}"/>
+			
+			 <div class="form-group">
+                <label>财产编号：${officeApply.OSID!''}</label>
+            </div>
+
+            <div class="form-group">
+                <label>用品名：${officeApply.NAME!''}</label>
+            </div>
+
+            <div class="form-group">
+                <label>申请老师工号</label>
+                <input placeholder="输入申请老师工号..." class="form-control" type="text" name="officeSupplyApply.USER_ACCOUNT"
+                       value="" required="true"/>
+            </div>
+            
+			 <div class="form-group">
+                <label>申请数量</label>
+                <input placeholder="输入申请数量..." class="form-control" type="number" name="officeSupplyApply.NUMBER"
+                       value="" required="true"/>
+            </div>
+			
+            <div class="form-group">
+                <label>申请原因</label>
+                <textarea placeholder="输入申请原因..." class="form-control" name="officeSupplyApply.REASON" rows="5" required="true"></textarea>
+            </div>
+            
+             <div class="form-group">
+                <label>备注</label>
+                <textarea placeholder="输入备注..." class="form-control" name="officeSupplyApply.NOTE" rows="5" required="true"></textarea>
+            </div>
+
+            <button class="btn btn-info" onclick="save()">保存</button>
+            <button class="btn btn-success" onclick="sub()">提交</button>
+           
+        </form>
+    </div>
+
+    <script>
+        function save(){
+            $('#applyForm').attr("action", "/asset/officeSupply/saveApply/${currentPage}").submit();
+        }
+
+        function sub(){
+        	$('#applyForm').attr("action", "/asset/officeSupply/subApply/${currentPage}").submit();
+        }
+    </script>
+</div>
+<%}%>

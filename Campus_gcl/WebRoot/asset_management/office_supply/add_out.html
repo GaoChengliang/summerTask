@@ -1,4 +1,4 @@
-<%layout("/common/_layout.html", {title:"办公用品管理"}){%>
+<%layout("/common/_layout.html", {title:"办公用品出库"}){%>
 <div>
 	<div class="masthead">
 		<h3 class="muted">办公用品出库记录</h3>
@@ -26,20 +26,16 @@
 			</div>
 
 			<div class="form-group">
-				<label>型号</label> <input placeholder="输入型号..." class="form-control"
+				<label>规格</label> <input placeholder="输入型号..." class="form-control"
 					type="text" name="officeSupplyOut.TYPE" value="" required="true" />
 			</div>
 
 			<div class="form-group">
-				<label>领用人编号</label> <input placeholder="输入领用人编号..."
-					class="form-control" type="text" name="officeSupplyOut.USER_GH"
+				<label>领用教师工号</label> <input placeholder="输入领用人编号..."
+					class="form-control" type="text" name="officeSupplyOut.TEACHER_GH"
 					value="" required="true" />
 			</div>
 
-			<div class="form-group">
-				<label>领用人姓名</label> <input placeholder="输入领用人姓名..." class="form-control"
-					type="text" name="officeSupplyOut.USER_NAME" value="" required="true" />
-			</div>
 
 			<div class="form-group">
 				<label>领用数量</label> <input placeholder="输入领用数量..."

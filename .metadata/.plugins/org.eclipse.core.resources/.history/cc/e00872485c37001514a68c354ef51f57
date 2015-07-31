@@ -1,0 +1,57 @@
+<%layout("/common/_layout.html", {title:"办公用品申请审批"}){%>
+<div>
+    <div class="masthead">
+        <h3 class="muted">办公用品申请审批</h3>
+    </div>
+    <hr/>
+
+    <div>
+        <form id="applyForm" name="applyForm" method="post">
+            <input type="hidden" name="officeSupplyApply.ID" value="${officeApply.ID!''}"/>
+            <input type="hidden" name="officeSupplyApply.OSID" value="${officeApply.OSID!''}"/>
+            <input type="hidden" name="officeSupplyApply.NUMBER" value="${officeApply.NUMBER!''}"/>
+            <input type="hidden" name="officeSupplyApply.REASON" value="${officeApply.REASON!''}"/>
+            <input type="hidden" name="officeSupplyApply.NOTE" value="${officeApply.NOTE!''}"/>
+            <input type="hidden" name="officeSupplyApply.USER_ACCOUNT" value="${officeApply.USER_ACCOUNT!''}"/>
+            <input type="hidden" name="officeSupplyApply.TEACHER_GH" value="${officeApply.TEACHER_GH!''}"/>
+            <input type="hidden" name="officeSupplyApply.APPLY_STATUS" value="${officeApply.APPLY_STATUS!''}"/>
+
+
+            <div class="form-group">
+                <label>财产编号：${officeApply.OSID!''}</label>
+            </div>
+            
+             <div class="form-group">
+                <label>申请教师工号：${officeApply.TEACHER_GH!''}</label>
+            </div>
+            
+             <div class="form-group">
+                <label>申请数量：${officeApply.NUMBER!''}</label>
+            </div>
+            
+             <div class="form-group">
+                <label>申请理由：</label>
+                <p>${officeApply.REASON!''}</p>
+            </div>
+
+             <div class="form-group">
+                <label>反馈信息</label>
+                <textarea placeholder="输入同意或者拒绝的反馈信息..." class="form-control" name="officeSupplyApply.REVIEW_FEEDBACK" rows="5" required="true"></textarea>
+            </div>
+         	<button class="btn btn-success" onclick="agree()">批准通过</button>
+            <button class="btn btn-success" onclick="reject()">拒绝</button>
+        </form>
+    </div>
+     <script>
+        function agree(){
+            $('#applyForm').attr("action", "/asset/officeSupply/agree/"+${currentPage}).submit();
+        }
+
+        function sub(){
+        	$('#applyForm').attr("action", "/asset/officeSupply/reject/"+${currentPage}).submit();
+        }
+    </script>
+    
+    
+</div>
+<%}%>

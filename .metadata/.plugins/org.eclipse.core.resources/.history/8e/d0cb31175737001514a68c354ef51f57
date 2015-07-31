@@ -1,0 +1,49 @@
+<%layout("/common/_layout.html", {title:"办公用品申请审批"}){%>
+<div>
+    <div class="masthead">
+        <h3 class="muted">办公用品申请审批</h3>
+    </div>
+    <hr/>
+
+    <div>
+        <form action="/asset/officeSupply/update/${currentPage}" method="post">
+            <input type="hidden" name="officeSupply.ID" value="${officeApply.ID!''}"/>
+            <input type="hidden" name="officeSupply.NAME" value="${officeApply.NAME!''}"/>
+            <input type="hidden" name="officeSupply.TYPE" value="${officeApply.TYPE!''}"/>
+            <input type="hidden" name="officeSupply.PRIZE" value="${officeApply.PRIZE!''}"/>
+            <input type="hidden" name="officeSupply.SUPPLIER_ID" value="${officeApply.SUPPLIER_ID!''}"/>
+            <input type="hidden" name="officeSupply.IN_TIME" value="${officeApply.IN_TIME!''}"/>
+            <input type="hidden" name="officeSupply.USER" value="${officeApply.USER!''}"/>
+            <input type="hidden" name="officeSupply.USE_FOR" value="${officeApply.USE_FOR!''}"/>
+            <input type="hidden" name="officeSupply.IS_OUT" value="1"/>
+            <input type="hidden" name="officeSupply.IS_APPLY" value="1"/>
+
+
+            <div class="form-group">
+                <label>用品名：${officeApply.NAME!''}</label>
+            </div>
+            
+             <div class="form-group">
+                <label>型号：${officeApply.TYPE!''}</label>
+            </div>
+            
+             <div class="form-group">
+                <label>使用者：${officeApply.USER!''}</label>
+            </div>
+            
+             <div class="form-group">
+                <label>用途：</label>
+                <p>${officeApply.USE_FOR!''}</p>
+            </div>
+
+         	<div class="form-group">
+ 			 <label>出库时间</label>
+   			<input placeholder="输入允许物品出库时间..." class="form-control" type="date" name="officeSupply.OUT_TIME" value="${officeApply.OUT_TIME!''}"  required ="true" />
+			</div>
+         	 
+            <button class="btn btn-success" type="submit">批准</button>
+            <a class="btn btn-danger" href="/asset/officeSupply/reject/${officeApply.ID}-${currentPage}">不合格</a>
+        </form>
+    </div>
+</div>
+<%}%>
