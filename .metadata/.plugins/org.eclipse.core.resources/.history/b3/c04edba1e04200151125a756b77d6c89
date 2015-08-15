@@ -1,0 +1,57 @@
+﻿<%layout("./supplier_layout.html"){ %>
+
+	<div class="main">
+        		<div class="masthead">
+        		<form>
+        		    <div class="btn-group">
+        		   		<a class="btn btn-default" href="/asset/supplier/add">新增</a>
+						<a class="btn btn-default" href="#">批量删除</a>
+						<a class="btn btn-default" href="#">导入数据</a>
+				    </div>
+				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<label>名称:</label>
+					<input placeholder="输入名称..." type="text"/>
+					&nbsp;&nbsp;
+					<label>编号:</label>
+					<input placeholder="输入编号..." type="text"/>
+					<button class="btn btn-default" type="submit">查询</button>
+					</form>
+				</div>
+				<hr/>
+	   <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th hidden="true"></th>
+                <th style="text-align:center; width:5%">序号</th>
+                <th style="text-align:center; width:20%">供应商名称</th>
+                <th style="text-align:center; width:15%">联系人</th>
+                <th style="text-align:center; width:15%">联系电话</th>
+                <th style="text-align:center; width:20%">邮箱</th>
+                <th style="text-align:center; width:15%">操作</th>
+            </tr>
+            </thead>
+			<tbody>
+           <%for(x in supplierPage.list){ %>
+                <tr>
+                    <td style="text-align:center;" hidden="true">${x.ID}</td>
+                    <td style="text-align:center;">${xLP.index}</td>
+                    <td style="text-align:center;">${x.NAME}</td>
+                    <td style="text-align:center;">${x.LINKMAN}</td>
+                    <td style="text-align:center;">${x.PHONE}</td>
+                    <td style="text-align:center;">${x.EMAIL}</td>
+                    <td style="text-align:center;">
+                        <a href="/asset/supplier/delete/${x.ID}">删除</a>
+                        &nbsp;&nbsp;<a href="/asset/supplier/edit/${x.ID}">编辑</a>
+                    </td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+       	<%includeFileTemplate("/common/_paginate.html",
+		{"currentPage":supplierPage.pageNumber,"totalPage":supplierPage.totalPage,"actionUrl":"/asset/supplier/"}) {} 
+	    %>
+      </div>							
+	</div>
+<%}%>

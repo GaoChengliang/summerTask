@@ -12,22 +12,22 @@ public class SupplierController extends Controller{
 	}
 	
 	public void add() {
-		setAttr("lastPage", getParaToInt());
 		render("add.html");
+	}
+	
+	
+	public void view() {
+		setAttr("supplier", Supplier.dao.findById(getParaToInt(0)));
+		render("view.html");
 	}
 	
 	@Before(SupplierValidator.class)
 	public void save() {
 		getModel(Supplier.class).save();
-		int page = getParaToInt();
-		if(page <= 0){
-			page = 1;
-		}
-		redirect("/asset/supplier/" + page);
+		redirect("/asset/supplier");
 	}
 	
 	public void edit() {
-		setAttr("currentPage",getParaToInt(1));
 		setAttr("supplier", Supplier.dao.findById(getParaToInt(0)));
 		render("edit.html");
 	}
@@ -35,7 +35,7 @@ public class SupplierController extends Controller{
 	@Before(SupplierValidator.class)
 	public void update() {
 		getModel(Supplier.class).update();
-		redirect("/asset/supplier/" + getParaToInt());
+		redirect("/asset/supplier");
 	}
 	
 	public void delete() {

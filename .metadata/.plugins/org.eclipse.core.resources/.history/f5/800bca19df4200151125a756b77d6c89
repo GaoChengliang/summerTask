@@ -1,0 +1,25 @@
+﻿<!--<fieldset>-->
+<!--<legend>创建Blog</legend>-->
+<input type="hidden" name="supplier.ID" value="${supplier.ID!''}"/>
+<div class="form-group">
+  <label>供应商名称</label>
+  <input placeholder="输入名称..." class="form-control" type="text" name="supplier.NAME" value="${supplier.NAME!''}" required ="true" />
+</div>
+
+<div class="form-group">
+  <label>联系人</label>
+   <input placeholder="输入联系人姓名..." class="form-control" type="text" name="supplier.LINKMAN" value="${supplier.LINKMAN!''}"  required ="true" />
+</div>
+
+<div class="form-group">
+  <label>电话</label>
+   <input placeholder="输入电话..." class="form-control" type="tel" name="supplier.PHONE" value="${supplier.PHONE!''}" />${phoneMsg!}
+</div>
+
+<div class="form-group">
+  <label>邮箱</label>
+    <input placeholder="输入邮箱..." class="form-control" type="text" name="supplier.EMAIL" value="${supplier.EMAIL!''}"/>${emailMsg!}
+</div>
+<button class="btn btn-info" type="submit">提交</button>
+<button class="btn btn-danger" >取消</button>
+<!--</fieldset>-->

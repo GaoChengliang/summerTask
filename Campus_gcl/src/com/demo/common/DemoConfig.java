@@ -10,6 +10,8 @@ import com.demo.asset.officesupply.OfficeSupplyController;
 import com.demo.asset.officesupply.OfficeSupplyOut;
 import com.demo.asset.supplier.Supplier;
 import com.demo.asset.supplier.SupplierController;
+import com.demo.index.IndexController;
+import com.demo.login.LoginController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -61,9 +63,10 @@ public class DemoConfig extends JFinalConfig {
 	 * 配置路由
 	 */
 	public void configRoute(Routes me) {
-		me.add("/", CommonController.class);
 		me.add("/asset/supplier", SupplierController.class, "/asset_management/supplier");
 		me.add("/asset/officeSupply", OfficeSupplyController.class, "/asset_management/office_supply");
+		me.add("/index", IndexController.class);
+		me.add("/", LoginController.class, "/index");
 	}
 	
 	/**

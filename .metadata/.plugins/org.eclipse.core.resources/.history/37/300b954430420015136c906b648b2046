@@ -1,0 +1,3 @@
+  function aa(){
+        window.location.href="/asset/supplier";
+  }

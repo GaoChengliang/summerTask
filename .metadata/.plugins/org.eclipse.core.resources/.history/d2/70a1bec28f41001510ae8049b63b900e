@@ -1,0 +1,8 @@
+$(document).ready(function() {
+        $("a[name='min']").click(function(){
+        	$("#sidebar").hide();
+        });
+        $("a[name='max']").click(function(){
+        	$("#sidebar").show();
+        });
+    });

@@ -1,0 +1,28 @@
+<%layout("./supplier_layout.html", {title:"供应商管理"}){%>
+<div class="main">
+<div class="container">
+	<div>
+		<h3>供应商名称:&nbsp;<strong>${supplier.NAME!''}</strong></h3>
+	</div>
+	<br/>
+	<div>
+		<h3>联系人:&nbsp;<strong>${supplier.LINKMAN!''}</strong></h3>
+	</div>
+	<br/>
+	<div class="form-group">
+		<label>联系人</label>
+		<p>${supplier.LINKMAN!''}</p>
+	</div>
+
+	<div class="form-group">
+		<label>电话</label>
+		<p>${supplier.PHONE!''}</p>
+	</div>
+
+	<div class="form-group">
+		<label>邮箱</label>
+		<p>${supplier.EMAIL!''}</p>
+	</div>
+</div>
+</div>
+<%}%>

@@ -1,0 +1,12 @@
+$(document).ready(function() {
+        $("a[name='min']").click(function(){
+        	$("#sidebar").hide();
+        	$(".col-sm-9").removeClass().addClass("col-sm-12");
+        	$(".col-md-10").removeClass().addClass("col-md-12");
+        });
+        $("a[name='max']").click(function(){
+        	$("#sidebar").show();
+        	$(".col-sm-12").removeClass().addClass("col-sm-9");
+        	$(".col-md-12").removeClass().addClass("col-md-10");
+        });
+    });
