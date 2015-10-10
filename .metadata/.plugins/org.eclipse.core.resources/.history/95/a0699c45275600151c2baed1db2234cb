@@ -1,0 +1,26 @@
+.main{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.bar:link{
+	color: #fff;
+	TEXT-DECORATION: none
+}
+
+
+.bar:visited{
+	color: #fff;
+	TEXT-DECORATION: none
+}
+
+.bar:hover{
+	color: ##337ab7;
+	TEXT-DECORATION: none
+}
+
+.bar:checked{
+	color: ##337ab7;
+	TEXT-DECORATION: none
+}
+

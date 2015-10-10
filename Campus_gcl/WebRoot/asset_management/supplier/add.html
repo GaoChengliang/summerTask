@@ -1,7 +1,7 @@
-﻿<%layout("./supplier_layout.html"){%>
+﻿<%layout("/common/import_layout.html"){ %>
 <div class="main">
 <div class="container">
-	<form action="/asset/supplier/save" method="post">
+	<form action="/supplier/save" method="post">
 		<%includeFileTemplate("./_form.html"){}%>
 	</form>
 </div>

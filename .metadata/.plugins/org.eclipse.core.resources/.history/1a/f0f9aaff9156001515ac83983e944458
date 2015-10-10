@@ -1,0 +1,14 @@
+$(function(){
+	var tabs = $("#tabs").iframeTabs({'wrapperClass':'tab-wrapper', 'height':650});
+	  $("a[name='supplier_manage_link']").click(function(event){
+		  event.preventDefault();
+		  var title = $(this).text();
+		  tabs.addTab('supplier-manage', title, 'supplier');
+      });
+	  
+		$("a[name='supplier_manage_link']").hover(function(event) {
+			$(this).find('img').attr("src", "/img/logo/supplier_manage_chosen.png");
+		}, function(event) {
+			$(this).find('img').attr("src", "/img/logo/supplier_manage.png");
+		});
+});

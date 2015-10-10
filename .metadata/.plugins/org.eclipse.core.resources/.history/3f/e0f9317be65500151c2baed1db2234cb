@@ -1,0 +1,6 @@
+$(function(){
+	var tabs = $("#tabs").iframeTabs({'wrapperClass':'tab-wrapper'});
+	  $("a[name='supplier-manage']").click(function(){
+          
+      });
+});

@@ -1,0 +1,46 @@
+﻿<%layout("/common/_layout.html", {title:"资产管理"}){ %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2 sidebar-2">
+			<div class="sub-header">
+				<div class="nav nac-sidebar font-style-background-blue">功能菜单</div>
+			</div>
+
+			<div class="mtree-demo">
+				<ul class="mtree bubba">
+					<li class="mtree-node"><a name="system_set_link" href="#"><img src="/img/logo/supplier_manage.png" alt="供应商管理" height="18px" width="18px"/>系统设置</a>
+						<ul class="mtree-level-1">
+							<li><a name="supplier_manage_link"><img src="/img/logo/supplier_manage.png" alt="供应商管理" height="18px" width="18px"/>&nbsp;供应商管理</a></li>
+						</ul></li>
+
+					<li class="mtree-node"><a href="#">固定资产管理</a>
+						<ul class="mtree-level-1">
+							<li><a href="#">资产管理</a></li>
+							<li><a href="#">设备管理</a></li>
+							<li><a href="#">房间管理</a></li>
+							<li><a href="#">我的设备</a></li>
+						</ul></li>
+					<li><a href="#">办公用品管理</a></li>
+					<li><a href="#">易耗品申请</a></li>
+				</ul>
+			</div>
+
+
+		</div>
+		<div class="col-md-10 col-md-offset-2">
+			<div class="main">
+				<div id="content">
+					<div id="tabs">
+						<ul>
+							<li><a href="#home">资产管理主页</a></li>
+						</ul>
+						<div id="home">这是资产管理默认开始页面.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/sider/sider.js"></script>
+<script src="/js/tabs/tab.js"></script>
+<%}%>

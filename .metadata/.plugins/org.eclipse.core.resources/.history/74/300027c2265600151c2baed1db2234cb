@@ -1,0 +1,10 @@
+.main{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.bar:link,
+.bar:visited{
+	color: #fff;
+	TEXT-DECORATION: none
+}

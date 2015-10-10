@@ -1,0 +1,8 @@
+$(function(){
+	var tabs = $("#tabs").iframeTabs({'wrapperClass':'tab-wrapper'});
+	  $("a[name='supplier-manage']").click(function(event){
+		  event.preventDefault();
+		  var title = $(this).text();
+		  tabs.addTab('supplier-manage', title, 'tab'+id.substr(4)+'.html');
+      });
+});

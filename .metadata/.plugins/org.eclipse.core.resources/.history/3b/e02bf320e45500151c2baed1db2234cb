@@ -1,0 +1,9 @@
+$(function(){
+	var tabs = $("#tabs").iframeTabs({'wrapperClass':'tab-wrapper','height': });
+	$("#menu").on('click', 'a', function(event) {
+		event.preventDefault();
+		var title = $(this).text();
+		var id = $(this).attr('id');
+		tabs.addTab('tab-'+id.substr(4), title, 'tab'+id.substr(4)+'.html');
+	});
+});

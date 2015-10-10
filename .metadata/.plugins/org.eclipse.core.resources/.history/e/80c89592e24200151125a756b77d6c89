@@ -1,9 +1,0 @@
-﻿<%layout("./supplier_layout.html", {title:"供应商管理"}){%>
-<div class="main">
-<div class="container">
-	<form action="/asset/supplier/save" method="post">
-		<%includeFileTemplate("./_form.html"){}%>
-	</form>
-</div>
-</div>
-<%}%>

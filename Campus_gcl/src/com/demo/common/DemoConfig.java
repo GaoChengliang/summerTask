@@ -4,10 +4,7 @@ package com.demo.common;
 import org.beetl.core.GroupTemplate;
 import org.beetl.ext.jfinal.BeetlRenderFactory;
 
-import com.demo.asset.officesupply.OfficeSupply;
-import com.demo.asset.officesupply.OfficeSupplyApply;
-import com.demo.asset.officesupply.OfficeSupplyController;
-import com.demo.asset.officesupply.OfficeSupplyOut;
+import com.demo.asset.supplier.AssetController;
 import com.demo.asset.supplier.Supplier;
 import com.demo.asset.supplier.SupplierController;
 import com.demo.index.IndexController;
@@ -63,8 +60,8 @@ public class DemoConfig extends JFinalConfig {
 	 * 配置路由
 	 */
 	public void configRoute(Routes me) {
-		me.add("/asset/supplier", SupplierController.class, "/asset_management/supplier");
-		me.add("/asset/officeSupply", OfficeSupplyController.class, "/asset_management/office_supply");
+		me.add("/supplier", SupplierController.class, "/asset_management/supplier");
+		me.add("/asset", AssetController.class, "/asset_management");
 		me.add("/index", IndexController.class);
 		me.add("/", LoginController.class, "/index");
 	}
@@ -89,9 +86,6 @@ public class DemoConfig extends JFinalConfig {
 
 		me.add(arp);
 		arp.addMapping("supplier_table", "ID", Supplier.class);
-		arp.addMapping("office_supply_table", "ID", OfficeSupply.class);
-		arp.addMapping("office_supply_out_table", "ID", OfficeSupplyOut.class);
-		arp.addMapping("office_supply_apply_table", "ID", OfficeSupplyApply.class);
 	}
 	
 	/**

@@ -1,0 +1,4 @@
+  function jumpToAsset(){
+	  	this.target = "_blank"; 
+        window.open("/asset");
+  }

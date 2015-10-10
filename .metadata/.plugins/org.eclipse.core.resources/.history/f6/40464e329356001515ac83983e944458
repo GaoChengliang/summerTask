@@ -1,0 +1,3 @@
+  function jumpToAsset(){
+        window.location.href="/asset";
+  }

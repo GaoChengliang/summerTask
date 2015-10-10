@@ -1,0 +1,4 @@
+  function jumpToAsset(){
+        window.open("/asset");
+        return false;
+  }

@@ -1,13 +1,15 @@
 <%layout("/common/_layout.html", {title:"功能主页"}){ %>
-<script src="/js/index/jump.js"></script>
+<script src="/js/index/index.js"></script>
 <div class="container-fluid">
 	<div class="row">
         <div id="sidebar" class="col-md-2 sidebar">
       	  <div class="nav nac-sidebar font-style-background-blue">
+      	  <span class="glyphicon glyphicon-th" aria-hidden="true"></span>&nbsp;
       	  	  功能菜单
       	  </div>
       	  <br/><br/><br/><br/>
       	   <div class="nav nac-sidebar font-style-background-blue">
+      	    <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>&nbsp;
       	  	  待办事项
       	  </div>
           <ul class="nav nav-sidebar font-style-li">
@@ -17,6 +19,7 @@
           </ul>
           
            <div class="nav nac-sidebar font-style-background-blue">
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
       	  	  课程表
       	   </div>
       	             
@@ -25,27 +28,24 @@
         <div class="body-main">
    				<ul id="myTab" class="nav nav-tabs">
 					<li class="active">
-						<a href="#all" data-toggle="tab">全部</a>
+						<a href="#collection" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;我的收藏</a>
 					</li>
 					<li>
-						<a href="#education" data-toggle="tab">教学教务</a>
+						<a href="#education" data-toggle="tab"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&nbsp;教学教务</a>
 					</li>
 					<li>
-						<a href="#campus_office" data-toggle="tab">校园办公</a>
+						<a href="#campus_office" data-toggle="tab"><span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>&nbsp;校园办公</a>
 					</li>
 					<li>
-						<a href="#system_manage" data-toggle="tab">系统管理</a>
+						<a href="#system_manage" data-toggle="tab"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;系统管理</a>
 					</li>
 					<li>
-						<a href="#focus" data-toggle="tab">我的关注</a>
-					</li>
-					<li>
-						<a href="#collection" data-toggle="tab">我的收藏</a>
+						<a href="#other" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;其他</a>
 					</li>
 				</ul>
 				<div id="myTabContent" class="tab-content">
-					<div class="tab-pane fade in active" id="all">
-						 <div class="tile-square bg-blue fg-white" onclick="jumpToSupplier()">
+					<div class="tab-pane fade in active" id="collection">
+						 <div class="tile-square bg-blue fg-white" onclick="jumpToAsset()">
               		 		资产管理					
         				 </div>
         				 <div class="tile-square bg-green fg-white">
@@ -131,7 +131,7 @@
         				 </div>
 					</div>
 					
-					<div class="tab-pane fade" id="focus">
+					<div class="tab-pane fade" id="other">
 						  <div class="tile-square bg-blue fg-white">
               		 		模块模块					
         				 </div>
@@ -150,27 +150,7 @@
         				 </div>
 					</div>
 					
-					<div class="tab-pane fade" id="collection">
-						  <div class="tile-square bg-blue fg-white">
-              		 		模块模块					
-        				 </div>
-        				 <div class="tile-square bg-green fg-white">
-              		 		模块模块					
-        				 </div>
-        				 <div class="tile-square bg-orange fg-white">
-              		 		模块模块					
-        				 </div>
-        				 <div class="tile-square bg-red fg-white">
-              		 		模块模块						
-        				 </div>
-        				
-        				 <div class="tile-square bg-lightGreen fg-white">
-              		 		模块模块						
-        				 </div>
-        				 <div class="tile-square bg-lightRed fg-white">
-              		 		模块模块						
-        				 </div>
-					</div>
+				
 					
 				</div>
 			</div>

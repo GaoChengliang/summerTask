@@ -1,0 +1,14 @@
+.main{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.add:link,
+.add:visited{
+	background:url(/img/logo/add.png);
+}
+
+.add:hover,
+.add:active{
+	background:url(/img/logo/add-chosen.png);
+}

@@ -1,0 +1,47 @@
+$("a[name='view_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/view_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/view.png");
+	});
+
+	$("a[name='edit_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/edit_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/edit.png");
+	});
+
+	$("a[name='delete_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/delete_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/delete.png");
+	});
+	
+	$("a[name='new_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/new_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/new.png");
+	});
+	
+	$("a[name='bulk_delete_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/bulk_delete_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/bulk_delete.png");
+	});
+	
+	$("a[name='in_data_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/in_data_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/in_data.png");
+	});
+	
+	$("a[name='out_data_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/out_data_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/out_data.png");
+	});
+	
+	$("a[name='out_data_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/out_data_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/out_data.png");
+	});

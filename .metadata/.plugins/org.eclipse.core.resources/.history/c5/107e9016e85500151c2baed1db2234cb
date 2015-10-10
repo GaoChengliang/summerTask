@@ -1,0 +1,9 @@
+﻿<%layout("./supplier_layout.html"){%>
+<div class="main">
+<div class="container">
+  <form role="form" action="/supplier/update" method="post">
+    <%includeFileTemplate("./_form.html"){}%>
+  </form>
+</div>
+</div>
+<%}%>

@@ -1,0 +1,80 @@
+﻿<%layout("/common/import_layout.html"){ %>
+<div class="main">
+	<div class="masthead">
+		<form>
+
+			<a href="/supplier/add">新增</a> &nbsp;&nbsp;<a href="#">批量删除</a>&nbsp;&nbsp; <a href="#">导入数据</a>&nbsp;&nbsp;<a href="#">导出数据</a>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<label>名称:</label> <input placeholder="输入名称..." type="text" />
+			&nbsp;&nbsp; <label>编号:</label> <input placeholder="输入编号..."
+				type="text" /> <a href="#"><img src="/img/logo/query.png"
+				alt="查询" /></a>
+
+		</form>
+	</div>
+	<hr />
+	<div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th hidden="true"></th>
+					<th style="text-align: center; width: 5%">序号</th>
+					<th style="text-align: center; width: 20%">供应商名称</th>
+					<th style="text-align: center; width: 15%">联系人</th>
+					<th style="text-align: center; width: 15%">联系电话</th>
+					<th style="text-align: center; width: 20%">邮箱</th>
+					<th style="text-align: center; width: 15%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%for(x in supplierPage.list){ %>
+				<tr>
+					<td style="text-align: center;" hidden="true">${x.ID}</td>
+					<td style="text-align: center;">${xLP.index}</td>
+					<td style="text-align: center;">${x.NAME}</td>
+					<td style="text-align: center;">${x.LINKMAN}</td>
+					<td style="text-align: center;">${x.PHONE}</td>
+					<td style="text-align: center;">${x.EMAIL}</td>
+					<td style="text-align: center;"><a name="view_link"
+						href="/supplier/view/${x.ID}"><img src="/img/logo/view.png"
+							alt="查看" /></a> &nbsp;&nbsp;<a name="edit_link"
+						href="/supplier/edit/${x.ID}"><img src="/img/logo/edit.png"
+							alt="编辑" /></a> &nbsp;&nbsp;<a name="delete_link"
+						href="/supplier/delete/${x.ID}"><img src="/img/logo/edit.png"
+							alt="删除" /></a></td>
+				</tr>
+				<%}%>
+			</tbody>
+		</table>
+		<%includeFileTemplate("/common/_paginate.html",
+		{"currentPage":supplierPage.pageNumber,"totalPage":supplierPage.totalPage,"actionUrl":"/asset/supplier/"})
+		{} %>
+	</div>
+
+</div>
+<script type="text/javascript">
+	$("a[name='view_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/view_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/view.png");
+	});
+
+	$("a[name='edit_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/edit_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/edit.png");
+	});
+
+	$("a[name='delete_link']").hover(function(event) {
+		$(this).find('img').attr("src", "/img/logo/delete_chosen.png");
+	}, function(event) {
+		$(this).find('img').attr("src", "/img/logo/delete.png");
+	});
+</script>
+<!--
+
+//-->
+</script>
+<%}%>
